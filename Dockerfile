@@ -1,4 +1,4 @@
-FROM openjdk:10-jre-slim
+FROM openjdk:10-jre
 
 ENV SBT_VERSION 0.13.16
 ENV SCALA_VERSION 2.12.2
@@ -13,9 +13,9 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
-ENV LC_ALL=en_US.UTF-8
-ENV LANG=en_US.UTF-8
-ENV LANGUAGE=en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
 
 RUN curl -sSL https://github.com/sbt/sbt/archive/v$SBT_VERSION.zip -o /opt/sbt-$SBT_VERSION.zip && \
     unzip /opt/sbt-$SBT_VERSION.zip -d /opt/ && \
